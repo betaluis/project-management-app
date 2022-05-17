@@ -14,7 +14,6 @@
         @apply
         text-base
         bg-bg-color
-        text-black
     }
 
     /* Layout */
@@ -33,5 +32,56 @@
         px-[12px]
         rounded
         text-primary
+        cursor-pointer
+        text-sm
+        border
+        border-primary
+
+        hover:text-white
+        hover:bg-primary
     }
+
+    /* Forms */
+
+    label {
+        @apply
+        block
+        my-6
+        mx-auto
+    }
+
+    label span {
+        @apply
+        block
+        mb-2
+    }
+
+    input, textarea {
+        @apply
+        py-2
+        px-[6px]
+        text-sm
+        text-[#777]
+        w-full
+        border
+        border-[#ddd]
+        rounded
+    }
+
+    textarea {
+        @apply min-h-[160px]
+    }
+
+    .error {
+        @apply
+        text-red-600
+        bg-pink-400
+        border
+        border-red-600
+        rounded
+        p-2
+        my-3
+        mx-0
+    }
+
 }
