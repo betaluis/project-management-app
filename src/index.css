@@ -9,4 +9,29 @@
     html {
         @apply font-poppins
     }
+
+    body {
+        @apply
+        text-base
+        bg-bg-color
+        text-black
+    }
+
+    /* Layout */
+
+    .page-title {
+        @apply
+        text-sm
+        text-heading
+        inline-block
+    }
+
+    .btn {
+        @apply
+        bg-white
+        py-[8px]
+        px-[12px]
+        rounded
+        text-primary
+    }
 }
