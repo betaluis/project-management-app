@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // Components
 import Navbar from './components/navbar/Navbar';
+import Sidebar from './components/sidebar/Sidebar';
 
 // Pages
 import Dashboard from './pages/dashboard/Dashboard'
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App flex">
       <BrowserRouter>
+        <Sidebar />
         <div className='flex-grow py-0 px-16'>
           <Switch>
             <Navbar />
