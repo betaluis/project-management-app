@@ -1,8 +1,36 @@
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+// Components
+import Dashboard from './pages/dashboard/Dashboard'
+import Create from './pages/create/Create'
+import Projects from './pages/project/Project'
+import Login from './pages/login/Login'
+import Signup from './pages/signup/Signup'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex">
+      <BrowserRouter>
+        <div className='flex-grow py-0 px-16'>
+          <Switch>
+            <Route exact path="/">
+              <Dashboard /> 
+            </Route>
+            <Route path="/create">
+              <Create /> 
+            </Route>
+            <Route path="/projects/:id">
+              <Projects /> 
+            </Route>
+            <Route path="/login">
+              <Login /> 
+            </Route>
+            <Route path="/signup">
+              <Signup /> 
+            </Route>
+          </Switch>
+        </div>
+      </BrowserRouter>      
     </div>
   );
 }
