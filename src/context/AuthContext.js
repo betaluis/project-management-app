@@ -1,9 +1,8 @@
 
 import { createContext, useEffect, useReducer } from "react";
-import { unstable_batchedUpdates } from "react-dom";
 
 // Firebase
-import { projectAuth, projectFirestore } from '../firebase/config';
+import { projectAuth } from '../firebase/config';
 
 export const AuthContext = createContext();
 
@@ -29,7 +28,7 @@ const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, initialState);
 
     useEffect(() => {
-        const unsub = projectAuthStateChanged(user => {
+        const unsub = projectAuth.onAuthStateChanged(user => {
             dispatch({ type: "AUTH_IS_READY", payload: user });
         })
 
