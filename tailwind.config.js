@@ -6,7 +6,7 @@ module.exports = { content: [
       colors: {
         'heading': '#444',
         'text': '#999',
-        'primary': '#8d69f1',
+        'primary': '#0988F8',
         'highlight': '#d13267',
         'bg-color': '#f4f4f4'
       }

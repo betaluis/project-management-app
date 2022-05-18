@@ -1,6 +1,9 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // Components
+import Navbar from './components/navbar/Navbar';
+
+// Pages
 import Dashboard from './pages/dashboard/Dashboard'
 import Create from './pages/create/Create'
 import Projects from './pages/project/Project'
@@ -13,6 +16,7 @@ function App() {
       <BrowserRouter>
         <div className='flex-grow py-0 px-16'>
           <Switch>
+            <Navbar />
             <Route exact path="/">
               <Dashboard /> 
             </Route>
