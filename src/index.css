@@ -13,8 +13,32 @@
 }
 
 @layer components {
-  .page-title {
+    label {
+        @apply text-slate-800;
+    }
+    input[type="text"], input[type="password"], input[type="email"], input[type="file"] {
+        @apply border-none outline outline-gray-200 outline-[2px] rounded-md; 
+    }
+    input[type="file"] {
+        @apply p-3;
+    }
+    label span {
+        @apply mb-3;
+    }
+    .page-title {
     font-size: 1rem;
-    color: var(--heading-color);
-  }
+        @apply text-slate-500;
+    }
+    .button {
+        @apply bg-slate-800 text-white py-2 px-8 rounded-full;
+    }
+    .sidebarLink.active {
+        @apply bg-background rounded-tl-full rounded-bl-full text-slate-700; 
+    }
+    .sidebarLink.active .icon {
+        @apply text-slate-700;
+    }
+    .error {
+        @apply text-red-500 bg-pink-300/25 border border-red-500 rounded-md p-2 my-3 mx-0;
+    }
 }

@@ -1,5 +1,7 @@
+// Icons
+export { Logo } from './icons/Logo'
+export { DashboardIcon } from './icons/DashboardIcon'
+export { AddIcon } from './icons/AddIcon'
 
-export { Dashboard } from './Dashboard'
-export { Login } from './Login'
-export { Signup } from './Signup'
+// Components
 export { Navbar } from './Navbar'

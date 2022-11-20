@@ -7,7 +7,7 @@ export const useLogin = () => {
 
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(null)
-  const mountedRef = useRef(true)
+  const [isCanceled, setIsCanceled] = useState(false)
   const { dispatch } = useAuthContext()
 
   const login = async (email, password) => {
@@ -28,7 +28,7 @@ export const useLogin = () => {
   }
 
   useEffect(() => {
-    return () => mountedRef.current = false
+    return () => setIsCanceled(true)
   }, [])
 
   return { login, loading, error }

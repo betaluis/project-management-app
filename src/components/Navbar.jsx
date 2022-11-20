@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../hooks"
 import { useSignout } from '../hooks'
+import { Logo } from "./"
 
 export const Navbar = () => {
 
@@ -8,35 +9,33 @@ export const Navbar = () => {
   const { signout } = useSignout()
 
   return (
-    <div className="border-b-2 w-full p-8">
-      <div className="flex justify-between items-center">
+    <nav className="w-full py-8 mb-20">
+      <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
 
         <div className='flex items-center'>
-          <h1 className="-mt-1 text-2xl font-bold mr-3">Logo</h1>
-          {user ?
-            <div className="text-sm text-slate-500">
-              Hello, {user ? user.displayName.slice(0, 1).toUpperCase() + user.displayName.slice(1) : null}!
-            </div>
-            : null
-          }
+          <Logo />
+          <span className="text-2xl font-bold text-slate-800 inline ml-2">Alien Manage</span>
+          {/* {user ? */}
+          {/*   <div className="text-sm text-slate-500"> */}
+          {/*     Hello, {user ? user.displayName.slice(0, 1).toUpperCase() + user.displayName.slice(1) : null}! */}
+          {/*   </div> */}
+          {/*   : null */}
+          {/* } */}
         </div>
 
         <div className="flex space-x-8 items-center">
           {user ? (
-            <>
-              <Link to={'/'}>Dashboard</Link>
-              <button onClick={signout} className="bg-slate-800 text-white py-2 px-8 rounded-full">Sign Out</button>
-            </>
+            <button onClick={signout} className="button">Sign Out</button>
           ) : (
             <>
               <Link to={'/login'}>Sign In</Link>
-              <Link to={'/signup'}>Sign Up</Link>
+              <Link className="button" to={'/signup'}>Sign Up</Link>
             </>
           )}
         </div>
 
       </div>
-    </div>
+    </nav>
   )
 
 }

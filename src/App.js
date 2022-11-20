@@ -1,29 +1,34 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Dashboard, Login, Signup, Navbar } from './components'
+import { Navbar } from './components'
+import { Dashboard, SignIn, SignUp, Create, Project } from './pages'
 import { useAuthContext } from './hooks'
+import Sidebar from './components/Sidebar'
 
 function App() {
 
   const { user, authIsReady } = useAuthContext()
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex bg-background min-h-screen">
       {authIsReady ?
         <BrowserRouter>
-          <div className='flex-none'>
+          {!user ? null : <Sidebar />}
+          <div className="grow px-16">
             <Navbar />
-          </div>
-          <div className="grow">
             <Routes>
+              {/* user signed in*/}
               <Route path="/" element={user ? <Dashboard /> : <Navigate to="/login" />} />
-              <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-              <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
+              <Route path="/create" element={user ? <Create /> : <Navigate to="/login" />} />
+              <Route path="/projects/:id" element={user ? <Project /> : <Navigate to="/login" />} />
+
+              {/* user NOT signed in*/}
+              <Route path="/login" element={user ? <Navigate to="/" /> : <SignIn />} />
+              <Route path="/signup" element={user ? <Navigate to="/" /> : <SignUp />} />
             </Routes>
           </div>
-          <div className='flex-none'>Footer</div>
         </BrowserRouter>
         : null}
-    </div>
+    </ div>
   );
 }
 
