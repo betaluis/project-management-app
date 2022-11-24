@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from 'react'
 import { auth, storage, db } from '../firebase/config'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
