@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { auth, storage } from '../firebase/config'
+import { auth, storage, db } from '../firebase/config'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { useAuthContext } from "./"
+import { collection, doc, setDoc } from "firebase/firestore"
 
 export const useSignup = () => {
 
@@ -30,6 +31,14 @@ export const useSignup = () => {
             await updateProfile(user, { displayName, photoURL: imageUrl })
             console.log('User profile updated')
 
+            // Create user document
+            const docRef = collection(db, 'users')
+            await setDoc(doc(docRef, user.uid), {
+                online: true,
+                displayName,
+                photoURL: imageUrl,
+            })
+
             dispatch({ type: 'LOGIN', payload: user })
 
             if (isCanceled) {
@@ -51,7 +60,7 @@ export const useSignup = () => {
             if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
                 setError('That email is already in use, please try again.')
             }
-            if (error.message = 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+            if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
                 setError('Password must be at least 6 characters.')
             }
         }
