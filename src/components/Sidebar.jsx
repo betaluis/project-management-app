@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useAuthContext } from '../hooks'
-import { DashboardIcon, AddIcon } from './'
+import { DashboardIcon, AddIcon, Avatar } from './'
 
 const links = [
     {
@@ -19,18 +19,13 @@ const Sidebar = () => {
 
     const { user } = useAuthContext()
 
-    console.log(user.photoURL)
-
     return (
         <div className="w-72 min-w-72 min-h-screen bg-primary relative text-white">
             <div className=''>
 
                 <div className="font-bold text-center tracking-wider py-10 px-7 border-b-[2px] border-b-white/20">
-                    {/* Avatar username here */}
-                    <div>
-                        <img src={user.photoURL} alt="User profile picture" />
-                    </div>
-                    <p>Hey, User!</p>
+                    <Avatar />
+                    {user ? <p>Hey, {user.displayName.slice(0, 1).toUpperCase() + user.displayName.slice(1)}!</p> : null}
                 </div>
 
                 <nav className="mt-20 ml-5">

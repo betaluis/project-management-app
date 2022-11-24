@@ -23,7 +23,6 @@ export const SignUp = () => {
     const handleFileChange = (e) => {
         setThumbnail(null)
         let selected = e.target.files[0]
-        console.log(selected)
 
         if (!selected) {
             setThumbnailError('Please select a file')
@@ -40,8 +39,6 @@ export const SignUp = () => {
 
         setThumbnailError(null)
         setThumbnail(selected)
-
-        console.log('thumbnail updated')
 
     }
 
