@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { auth, storage, db } from '../firebase/config'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
-import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { useAuthContext } from "./"
 import { collection, doc, setDoc } from "firebase/firestore"
 

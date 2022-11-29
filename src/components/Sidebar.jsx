@@ -18,13 +18,14 @@ const links = [
 const Sidebar = () => {
 
     const { user } = useAuthContext()
+    const { photoURL } = user
 
     return (
         <div className="w-72 min-w-72 min-h-screen bg-primary relative text-white">
             <div className=''>
 
                 <div className="font-bold text-center tracking-wider py-10 px-7 border-b-[2px] border-b-white/20">
-                    <Avatar />
+                    <Avatar src={photoURL} />
                     {user ? <p>Hey, {user.displayName.slice(0, 1).toUpperCase() + user.displayName.slice(1)}!</p> : null}
                 </div>
 

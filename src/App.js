@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Navbar } from './components'
+import { Navbar, OnlineUsers } from './components'
 import { Dashboard, SignIn, SignUp, Create, Project } from './pages'
 import { useAuthContext } from './hooks'
 import Sidebar from './components/Sidebar'
@@ -26,6 +26,7 @@ function App() {
                             <Route path="/signup" element={user ? <Navigate to="/" /> : <SignUp />} />
                         </Routes>
                     </div>
+                    {!user ? null : <OnlineUsers />}
                 </BrowserRouter>
                 : null}
         </ div>

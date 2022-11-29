@@ -6,3 +6,4 @@ export { AddIcon } from './icons/AddIcon'
 // Components
 export { Navbar } from './Navbar'
 export { Avatar } from './Avatar'
+export { OnlineUsers } from './OnlineUsers'
