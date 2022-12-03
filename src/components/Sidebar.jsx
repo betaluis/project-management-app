@@ -25,7 +25,9 @@ const Sidebar = () => {
             <div className=''>
 
                 <div className="font-bold text-center tracking-wider py-10 px-7 border-b-[2px] border-b-white/20">
-                    <Avatar src={photoURL} />
+                    <div className="w-14 h-14 mx-auto">
+                        <Avatar src={photoURL} />
+                    </div>
                     {user ? <p>Hey, {user.displayName.slice(0, 1).toUpperCase() + user.displayName.slice(1)}!</p> : null}
                 </div>
 
