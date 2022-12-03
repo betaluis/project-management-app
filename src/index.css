@@ -14,19 +14,19 @@
 
 @layer components {
     label {
-        @apply text-slate-800;
+        @apply text-slate-800 block;
     }
-    input[type="text"], input[type="password"], input[type="email"], input[type="file"] {
-        @apply border-none outline outline-gray-200 outline-[2px] rounded-md; 
+    input[type="text"], input[type="date"], input[type="password"], input[type="email"], input[type="file"], textarea {
+        @apply w-full border-none outline outline-gray-200 outline-[2px] rounded-md; 
     }
     input[type="file"] {
         @apply p-3;
     }
     label span {
-        @apply mb-3;
+        @apply block mb-3;
     }
     .page-title {
-    font-size: 1rem;
+        font-size: 1rem;
         @apply text-slate-500;
     }
     .button {
